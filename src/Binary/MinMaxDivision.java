@@ -36,6 +36,55 @@ package Binary;
  *   A[6] = 2
  * 위에서 설명한 대로 함수는 6을 반환해야 합니다.
  *
+ *  - 이진탐색문제로 예상되는 값을 중간값으로 하여 줄여나가는 형태로 찾아가는 문제 최소값, 최대값을 정해서 mid 값을 줄여나가는 방법
  * */
 public class MinMaxDivision {
+
+    public static void main(String[] args){
+        MinMaxDivision mx = new MinMaxDivision();
+        int A[] = {2, 1, 5, 1, 2, 2, 2};
+        System.out.println(mx.solution(3,5,A));
+    }
+
+    public int solution(int K, int M, int[] A) {
+        int max = 0;
+        int min = 0;
+        int result = 0;
+        for(int i = 0; i < A.length; i++){
+            max+=A[i]; //합계에서 나올 수 있는 가장 큰 수
+            min = Math.max(min,A[i]); //합계에서 나올 수 있는 가장 작은 수
+        }
+        int mid = (min + max) / 2;
+        while(min <= max){
+            if(solve(mid,K,A)){
+                result = mid;
+                max = mid - 1;
+            }else{
+                min = mid + 1;
+            }
+            mid = (min + max) / 2;
+        }
+        return result;
+    }
+
+    public boolean solve(int value, int K, int[] A){
+        int sum = 0;
+        for(int i = 0; i < A.length; i++){ //2 1 5 1 2 2 2 : 7
+            if(sum + A[i] > value){
+                K--;
+                sum = A[i];
+                if(K <= 0){
+                    return false;
+                }
+            }else{
+                sum += A[i];
+            }
+        }
+        if(K >= 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
