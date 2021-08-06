@@ -1,4 +1,6 @@
-public class Main {
+package DFSandBFS;
+
+public class 더하기빼기 {
     public static void main(String[] args) {
         Solution s = new Solution();
         int[] numbers = {1,1,1,1,1};

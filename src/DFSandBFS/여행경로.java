@@ -1,4 +1,4 @@
-import org.jetbrains.annotations.NotNull;
+package DFSandBFS;
 
 import java.util.*;
 
@@ -11,11 +11,16 @@ public class 여행경로 {
     static int visit[];
     public static void main(String[] args) {
         Solution s = new Solution();
-        String[][] tic = {{"ICN", "B"},
-                          {"B", "ICN"},
-                          {"ICN", "A"},
-                          {"A", "D"},
-                          {"D", "A"}};
+//        String[][] tic = {{"ICN", "B"},
+//                          {"B", "ICN"},
+//                          {"ICN", "A"},
+//                          {"A", "D"},
+//                          {"D", "A"}};
+        String[][] tic = {{"ICN", "SFO"},
+                {"ICN", "ATL"},
+                {"SFO", "ATL"},
+                {"ATL", "ICN"},
+                {"ATL","SFO"}};
         String[] answer = s.solution(tic);
         System.out.println(Arrays.asList(answer).toString());
     }
@@ -27,23 +32,16 @@ public class 여행경로 {
             dfs("ICN",0,tickets);
 
             //String[] answer = res.toArray(new String[res.size()]);
-            String[] answer = new String[1];
+            String[] answer = tmp;
             return answer;
         }
-        /*
-        [["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]
-                String[][] tic = {{"ICN", "B"},
-                          {"B", "ICN"},
-                          {"ICN", "A"},
-                          {"A", "D"},
-                          {"D", "A"}};
-        * */
         public void dfs(String start,int v, String[][] tickets){
             if(v == tickets.length){
                 result.add(start);
                 if(Arrays.asList(tmp).toString().compareTo(result.toString()) >= -1){
                     tmp = result.toArray(new String[result.size()]);
                 }
+                result.remove(result.size()-1);
                 return;
             }
             for(int i = 0; i < tickets.length; i++){
