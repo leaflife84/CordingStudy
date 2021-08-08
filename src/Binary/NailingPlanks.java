@@ -59,5 +59,6 @@ public class NailingPlanks {
 
     public int solution(int[] A, int[] B, int[] C) {
         // write your code in Java SE 8
+        return 1;
     }
 }
