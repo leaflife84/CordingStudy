@@ -1,6 +1,4 @@
-package LeetCode;
-
-import LeetCode.dfs.MaximumTree;
+package LeetCode.trees;
 
 import java.util.HashSet;
 import java.util.Set;

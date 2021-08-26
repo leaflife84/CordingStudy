@@ -1,4 +1,4 @@
-package LeetCode;
+package LeetCode.string;
 
 public class ComplexNumberMulti {
     public static void main(String[] args) {
