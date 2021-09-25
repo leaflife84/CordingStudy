@@ -27,6 +27,6 @@ public class ReadWriteExecute {
 
     public static void main(String[] args) {
         // Should write 752
-        System.out.println(ReadWriteExecute.symbolicToOctal(""));
+        System.out.println(ReadWriteExecute.symbolicToOctal("rwx-rwww"));
     }
 }
