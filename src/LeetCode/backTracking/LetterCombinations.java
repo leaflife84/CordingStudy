@@ -18,7 +18,6 @@ public class LetterCombinations {
 
     }
     public void dfs(List<String> result, int index, String digits){
-        if(digits)
 
     }
 }
